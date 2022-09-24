@@ -1,6 +1,6 @@
 # Получаем и выводим весь список контактов в виде таблицы (console.table)
 node src/index.js --action listContacts
-![image](https://user-images.githubusercontent.com/88406133/192118331-01db7990-00d3-47cb-8b0b-dac3537600f6.png)
+![image](https://user-images.githubusercontent.com/88406133/192119010-8034cc38-6161-4021-bd30-9aa90fe003c8.png)
 
 
 # Получаем контакт по id
