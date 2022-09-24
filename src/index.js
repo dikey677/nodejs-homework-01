@@ -1,5 +1,6 @@
 const contactsOperations = require("./contacts");
-// const argv = require("yargs").argv;
+const yargs = require("yargs");
+const { hideBin } = require("yargs/helpers");
 
 // TODO: рефакторить
 const invokeAction = async ({ action, id, name, email, phone }) => {
@@ -19,12 +20,16 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
       break;
 
     case "addContact":
-      const newContact = await contactsOperations.addContact(
-        name,
-        email,
-        phone
-      );
-      console.log(newContact);
+      if (name && email && phone !== null) {
+        const newContact = await contactsOperations.addContact(
+          name,
+          email,
+          phone
+        );
+        console.log(newContact);
+      } else {
+        throw new Error("You must enter valid data");
+      }
       break;
 
     case "updateContact":
@@ -50,9 +55,8 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
   }
 };
 
-const checkedId = "4";
+const arr = hideBin(process.argv);
+const { argv } = yargs(arr);
+console.log(argv);
 
-invokeAction({
-  action: "removeContact",
-  id: checkedId,
-});
+invokeAction(argv);

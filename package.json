@@ -26,6 +26,7 @@
   "dependencies": {
     "commander": "^9.4.0",
     "form-data": "^4.0.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "yargs": "^17.5.1"
   }
 }

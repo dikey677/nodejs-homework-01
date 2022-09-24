@@ -1,11 +1,6 @@
-const { writeFile } = require("fs");
 const fs = require("fs/promises");
 const path = require("path");
 const { v4 } = require("uuid");
-
-//   fs.readFile(contactsPath, "utf-8")
-//     .then((data) => console.log(data))
-//     .catch((error) => console.log("ERRORRRRR", error.message));
 
 const contactsPath = path.join(__dirname, "db/contacts.json");
 
