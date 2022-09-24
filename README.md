@@ -4,7 +4,7 @@ node src/index.js --action listContacts
 
 
 # Получаем контакт по id
-node src/index.js --action getContactsById --id abc
+node src/index.js --action getContactById --id abc
 ![image](https://user-images.githubusercontent.com/88406133/192118651-c05faf38-0f6a-4caa-bd5c-7fdc0ed130ef.png)
 
 
