@@ -9,16 +9,40 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
       console.log(listContacts);
       break;
 
-    case "get":
-      // ... id
+    case "getContactById":
+      const getContactById = await contactsOperations.getContactById(id);
+
+      if (!getContactById) {
+        throw new Error(`Contact with id=${id} not found`);
+      }
+      console.log(getContactById);
       break;
 
-    case "add":
-      // ... name email phone
+    case "addContact":
+      const newContact = await contactsOperations.addContact(
+        name,
+        email,
+        phone
+      );
+      console.log(newContact);
       break;
 
-    case "remove":
-      // ... id
+    case "updateContact":
+      const updateContact = await contactsOperations.updateContact(
+        name,
+        email,
+        phone,
+        id
+      );
+      if (!updateContact) {
+        throw new Error(`Contact with id=${id} not found`);
+      }
+      console.log(updateContact);
+      break;
+
+    case "removeContact":
+      const removeContact = await contactsOperations.removeContact(id);
+      console.log(removeContact);
       break;
 
     default:
@@ -26,4 +50,9 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
   }
 };
 
-invokeAction({ action: "listContacts" });
+const checkedId = "4";
+
+invokeAction({
+  action: "removeContact",
+  id: checkedId,
+});
